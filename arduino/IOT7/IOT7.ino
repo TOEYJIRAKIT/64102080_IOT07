@@ -4,9 +4,9 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 
-const char* ssid = "iPhone ของ Bank";
-const char* password = "11111111";
-const char* mqtt_server = "172.20.10.6";
+const char* ssid = "MAIBOK";
+const char* password = "1223334444";
+const char* mqtt_server = "192.168.43.248";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -56,11 +56,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
-    digitalWrite(ledPin, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because
-    // it is active low on the ESP-01)
+    digitalWrite(ledPin, LOW);  
   } else {
-    digitalWrite(ledPin, HIGH); // Turn the LED off by making the voltage HIGH
+    digitalWrite(ledPin, HIGH); 
   }
 
 }
@@ -91,7 +89,7 @@ void reconnect() {
 }
 
 void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  // pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   pinMode(ledPin, OUTPUT);
   Serial.begin(115200);
   setup_wifi();

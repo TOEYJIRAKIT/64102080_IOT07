@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template
 import requests
 from paho.mqtt import client as mqtt_client
 
-broker  = "172.20.10.6"
+broker  = "192.168.43.248"
 port = 1883
 
 def connect_mqtt():
@@ -19,7 +19,7 @@ def connect_mqtt():
 
 
 app = Flask(__name__)
-server_ip = "http://172.20.10.6:3000"
+server_ip = "http://192.168.43.248:3000"
 @app.route("/")
 def home():
     return render_template("index.html")

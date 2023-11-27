@@ -3,7 +3,7 @@
 import paho.mqtt.client as mqtt
 import requests
 
-host = "172.20.10.6"
+host = "192.168.43.248"
 port = 1883
 
 def on_connect(self, client, userdata, rc):
@@ -14,7 +14,7 @@ def on_connect(self, client, userdata, rc):
 import requests
 def on_message(client, userdata,msg):
     print(msg.payload.decode("utf-8", "strict"))
-    url = 'http://172.20.10.6:3000/sensors'
+    url = 'http://192.168.43.248:3000/sensors'
     myobj = {'message': msg.payload.decode("utf-8", "strict")}
     headers = {'Content-Type': 'application/json'} 
     r = requests.post(url, json=myobj, headers=headers)
